@@ -22,10 +22,10 @@ package body i2s_freq_pkg is
         bit_depth : real
     ) return time is
         variable ret_val : time; 
-        variable tmp : integer;
+        variable tmp : real;
     begin
-        tmp := integer((1.0/(2.0*2.0*bit_rate*bit_depth)))*(10**15); --get it into picoseconds size, and integer-ise it
-        return 1 fs * tmp;
+        tmp := 1.0/(2.0*2.0*bit_rate*bit_depth);
+        return 1 sec * tmp;
     end function;
     function calc_half_period(
         bit_rate : integer; 
