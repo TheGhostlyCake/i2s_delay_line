@@ -1,5 +1,11 @@
+library ieee;
+use ieee.numeric_std.all;
+use ieee.std_logic_1164.all;
+
 library vunit_lib;
 context vunit_lib.vunit_context;
+
+library lib;
 
 entity tb_i2s_delay_line is
   generic (runner_cfg : string);
@@ -8,9 +14,15 @@ end entity;
 
 
 architecture tb of tb_i2s_delay_line is
-clk : std_logic := '0';
-reset : std_logic := '0'; 
+signal clk : std_logic := '0';
+signal reset : std_logic := '0'; 
 begin
+--
+DUT : entity lib.i2s_delay_line
+port map(
+  clk => clk,
+  reset => reset
+);  
 --
 process 
 begin
@@ -23,7 +35,7 @@ begin
     for i in 1 to 2 loop
         wait until rising_edge(clk);
     end loop;
-    reset := '1';
+    reset <= '1';
     wait;
 end process;
 --

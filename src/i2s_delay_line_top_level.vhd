@@ -10,8 +10,8 @@ port (
 );
 end entity;
 
-arcitecture rtl of i2s_delay_line is
+architecture rtl of i2s_delay_line is
 begin
 
-end architecture
+end architecture;
 
