@@ -63,6 +63,7 @@ end process;
     begin
       tmp_time := calc_half_period(44100,16);
       log(logger,time'image(tmp_time));
+      --check_equal(tmp_time,)
 
       end procedure;
   begin

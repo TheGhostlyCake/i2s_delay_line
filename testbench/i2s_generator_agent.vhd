@@ -39,8 +39,6 @@ begin
                 clk <= not clk;
                 end loop;
                 word_select <= not word_select;
-                
-                
             end procedure;
     begin
         word_select <= '0'; 
